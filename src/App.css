@@ -1,38 +1,2408 @@
-.App {
-  text-align: center;
-}
+:root {
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /**
+     * colors
+     */
+  
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 88%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+  
+    /**
+     * typography
+     */
+  
+    --fs-1: 1.563rem;
+    --fs-2: 1.375rem;
+    --fs-3: 1.25rem;
+    --fs-4: 1.125rem;
+    --fs-5: 1rem;
+    --fs-6: 0.938rem;
+    --fs-7: 0.875rem;
+    --fs-8: 0.813rem;
+    --fs-9: 0.75rem;
+    --fs-10: 0.688rem;
+    --fs-11: 0.625rem;
+  
+    --weight-300: 300;
+    --weight-400: 400;
+    --weight-500: 500;
+    --weight-600: 600;
+    --weight-700: 700;
+  
+    /**
+     * border-radius
+     */
+  
+    --border-radius-md: 10px;
+    --border-radius-sm: 5px;
+  
+    /**
+     * transition 
+     */
+  
+    --transition-timing: 0.2s ease;
+  
   }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+    background-color:var(--white);
+}
+
+.proSection {
+    display: flex;
+    background-color: white;
+}
+
+.navbar-section {
+    position: sticky;
+    top: 0;
+    z-index:1000;
+}
+
+.navSection {
+    display: flex;
+    width: 100%;
+    min-width: 100vw;
+    height: 75px;
+    background-color:white;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    border-bottom: 1px solid var(--cultured);
+    z-index:1000;
+}
+
+.title h2 {
+    color:var( --eerie-black);
+}
+
+.custom-link {
+    text-decoration: none;
+}
+
+.user {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+    color:var( --eerie-black);
+}
+.cart{
+    width:150px;
+   
+    border-radius:5px;
+    padding:2px 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.cart span {
+    color:var( --eerie-black);
+    font-size:30px;
+    margin-left:30px;
+    font-weight:600;
+    text-decoration:underline; 
+
+  }
+  
+
+.search {
+    padding:0px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+  
+}
+
+.search input {
+    width: 80%;
+    height: 2rem;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.imgBox {
+    width: 80%;
+    padding-left: 20px;
+}
+
+.proImage {
+    width: 80%;
+}
+
+.proTitle h2 {
+    margin: 10px;
+}
+.subMenu ul li {
+    font-family: 'Roboto', sans-serif;
+    /* Other styles */
+}
+
+
+.container {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid var(--cultured);
+  }
+  
+  .desktop-menu-category-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-category {
+    position: relative;
+    margin-right: 50px;
+  }
+  
+  .menu-title,.panel-list-item a {
+    text-decoration: none;
+    font-weight:600;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.5s ease;
+    text-decoration: none;
+  color: black; /* Initial text color */
+  position: relative;
+  display: inline-block;
+  }
+
+  .menu-title::after,.panel-list-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Underline height */
+    background-color: #002fff;
+    /* Color of the underline */
+    transition: width 0.3s ease; /* Transition effect for the underline */
+  }
+  
+  .menu-title:hover::after ,.panel-list-item a:hover::after {
+    width: 100%; /* Underline expands to full width on hover */
+  }
+  .panel-list-item a:hover::after {
+    width: 40%; /* Underline expands to full width on hover */
+  }
+  
+  .menu-title:hover {
+    color:#002fff;
+
+  }
+
+  
+  
+  /* Ensure the dropdown panel is hidden by default */
+.dropdown-panel {
+    display: none; /* Hide by default */
+    position: absolute; /* Position it relative to the parent */
+    top: 100%; /* Position below the parent item */
+    left: 0;
+    background-color: white; /* Background color of the dropdown */
+    padding: 10px; /* Optional padding for the dropdown */
+    border: 1px solid #ddd; /* Optional border for the dropdown */
+    border-radius:5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  /* Show the dropdown panel when hovering over the parent item */
+  .menu-category:hover .dropdown-panel {
+    display: block; /* Show the dropdown panel */
+  }
+
+  
+  /* Ensure the dropdown panel stays visible when hovering directly over it */
+  .dropdown-panel:hover {
+    display: block; /* Keep it visible when hovering over the dropdown */
+  }
+  
+  /* Optional: Style for dropdown panel items */
+  .dropdown-panel-list {
+    list-style: none; /* Remove list bullets */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown-panel-list .panel-list-item {
+    margin: 5px 0; /* Space between items */
+  }
+  
+  .dropdown-panel-list .panel-list-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Text color for links */
+  }
+  
+  .dropdown-panel-list .panel-list-item a:hover {
+    color: #002fff;
+    /* Color on hover */
+  }
+  
+  .dropdown-panel-content {
+    display: flex;
+    gap: 20px; /* Space between dropdown lists */
+  }
+  
+  .dropdown-panel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .dropdown-panel-list .menu-title {
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #002fff;
+
+    margin-bottom: 10px;
+  }
+  
+  
+  .panel-list-item a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  
+  .panel-list-item a:hover {
+    color: #002fff;
+
+  }
+  
+
+
+ /* Ensure the carousel container takes full width and has some padding */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1300px; /* Adjust based on your preference */
+    margin: 0 auto;
+    border: 1px solid #ddd; /* Light border around the carousel */
+    border-radius: 8px; /* Rounded corners for the frame */
+    overflow: hidden; 
+    margin-top:20px;
+    /* Hide overflow to maintain the frame look */
+  }
+  
+  /* Style for the carousel images */
+  .carousel-inner img {
+    width: 100%; /* Ensure the image takes full width of the carousel item */
+    height: 300px; /* Maintain aspect ratio */
+    border-bottom: 1px solid #ddd; /* Border below each image */
+  }
+  
+  /* Style for carousel indicators */
+  .carousel-indicators button {
+    background-color: #333; /* Dark color for indicators */
+  }
+  
+  .carousel-indicators .active {
+    background-color: #fff; /* Highlight the active indicator */
+  }
+  
+  /* Style for carousel controls */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #333; /* Dark color for control icons */
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%; /* Adjust size of control buttons */
+  }
+  
+  /* Hide controls on smaller screens if needed */
+  @media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 10%; /* Slightly larger for touch devices */
+    }
+  }
+
+
+.propage{
+   margin:20px;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+   border-radius:5px;
+   padding:5px;
+}
+.propage:hover .proTitle {
+    background-color:#7fb9fc;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.proTitle{
+    border-radius:5px;
+    background-color:#F0F8FF;
+
+}
+.proTitle h2{
+    margin-left:50px;
+}
+.proSection {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px;
+}
+  
+ .proSection img{
+    height:170px;
+    margin-left:30px;
+    margin-bottom:15px;
+ } 
+
+ .imgBox img :hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+ } 
+ .imgBox {
+    text-decoration-style:none;
+ }
+  .imgBox h2{
+    font-size:20px;
+    text-decoration: none;
+    text-align:center;
+  }
+ 
+
+  .noDecoration {
+    text-decoration: none;
+    color: inherit; /* This will ensure the text color inherits from its parent and doesn't default to blue */
+  }
+  
+  .noDecoration:hover {
+    color:#002D62;
+    
+  }
+
+.pageImg {
+    width: 250px;
+    height: 250px;
+    padding-top: 20px;
+}
+
+.pageImg img {
+    width: 80%;
+}
+
+.pageImg img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.ind-image {
+    width: 500px;
+    height: 500px;
+}
+
+.ind-section {
+    display: flex;
+}
+
+.ind-image img {
+    width: 100%;
+}
+
+.ind-details {
+    padding: 20px;
+}
+
+.space {
+    margin: 10px;
+}
+
+.ind-details button {
+    background-color: orangered;
+    padding: 10px;
+    width: 10rem;
+    border-radius: 5px;
+    columns: white;
+}
+
+.ind-details button:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+.fullpage {
+    display: flex;
+    padding-top: 70px; /* Adjust based on your navbar height */
+}
+
+/* Styling for the selected products section */
+.pro-selected {
+    position: fixed;
+    width: 200px;
+    top: 100px;
+    left: 0;
+    height: 100vh;
+    background-color: aliceblue;
+    overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling for each checkbox input */
+.pro-input {
+    margin-bottom: 10px;
+}
+
+/* Styling for the main page section */
+.pageSection {
+    margin-left: 220px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Styling for each item box */
+.itemBox {
+    position: relative;
+    width: 20%;
+    margin: 15px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+/* Adding hover effect */
+.itemBox:hover {
+    transform: translateY(-10px);
+}
+
+/* Styling for the image container */
+.pageImg {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Styling for the image itself */
+.pageImg img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+/* Styling for the icons overlay */
+.iconsOverlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5); /* Panel background color */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Show icons on hover */
+.itemBox:hover .iconsOverlay {
+    opacity: 1;
+}
+
+/* Styling for each icon */
+.icon {
+    color: #fff;
+    background-color: #333;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.icon:hover {
+    background-color: #ff6f61;
+    transform: scale(1.1);
+}
+
+/* Price and discount styling */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+/* Navbar styling */
+.navbar {
+    position: sticky; /* or position: fixed; */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar stays above other content */
+    background-color: #fff; /* Background color to match your design */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+/* Add padding to the top of the page content */
+.fullpage {
+    padding-top: 70px; /* Adjust based on your navbar height */
+}
+
+/* Additional content styling to avoid overlap */
+.pageSection {
+    position: relative;
+    z-index: 1; /* Ensure content stays below the navbar */
+}
+
+/* Item box styling as before */
+.itemBox {
+    z-index: 0; /* Ensure item boxes stay below the navbar */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 575px) {
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .navbar-section {
+        width: 100%;
+        max-width: 100vw;
+    }
+    .subMenu,
+    .search,
+    .user {
+        display: none;
+    }
+    .pageImg img {
+        padding-left: 30px;
+    }
+    .user .cart {
+        display: block;
+        color: white;
+    }
+    .fullpage {
+        width: 100%;
+        max-width: 100vw;
+    }
+    .pro-selected {
+        display: none;
+    }
+    .pageSection {
+        margin-left: 60px;
+        display: block;
+    }
+    .cart-section {
+        width: 60%;
+    }
+    .cart-details {
+        font-size: small;
+    }
+}
+
+/* Full page styling */
+.fullpage {
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px; /* Adjust based on your navbar height */
+    box-sizing: border-box;
+}
+
+/* Styling for the main page section */
+.pageSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically if needed */
+    gap: 10px; /* Space between items */
+    margin-left: 220px; /* Adjust as needed */
+    padding: 10px; /* Optional: Add padding if needed */
+}
+
+/* Styling for each item box */
+.itemBox {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width to fit 4 items per row with margin */
+    margin: 10px 0; /* Margin adjusted for vertical spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in total width and height */
+    overflow: hidden; /* Hide any overflow */
+    text-align: center; /* Center text and content */
+}
+
+/* Styling for the image container */
+.pageImg {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 0; /* Remove padding if not needed */
+    margin: 0 auto; /* Center image container */
+}
+
+/* Styling for the image itself */
+.pageImg img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    display: block; /* Remove any extra space below the image */
+    margin: 0 auto; /* Center the image */
+}
+
+/* Styling for the icons overlay */
+.iconsOverlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5); /* Panel background color */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Show icons on hover */
+.itemBox:hover .iconsOverlay {
+    opacity: 1;
+}
+
+/* Styling for each icon */
+.icon {
+    color: #fff;
+    background-color: #333;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.icon:hover {
+    background-color: #ff6f61;
+    transform: scale(1.1);
+}
+
+/* Price and discount styling */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+/* Navbar styling */
+.navbar {
+    position: sticky; /* or position: fixed; */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar stays above other content */
+    background-color: #fff; /* Background color to match your design */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+/* Styling for each icon */
+.icon {
+    color: #fff; /* Keep the icon color white for contrast */
+    background-color: #ffb6c1; /* Light pink background color */
+    border-radius: 50%;
+    padding: 5px; /* Reduced padding for smaller icons */
+    margin-bottom: 5px; /* Reduced margin to keep icons close together */
+    font-size: 1rem; /* Reduced font size for smaller icons */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.icon:hover {
+    background-color: #ff6f61; /* Slightly darker pink for hover effect */
+    transform: scale(1.1);
+}
+/* Updated icon and panel styling */
+.iconsOverlay {
+    position: absolute;
+    top: 10px; /* Move icons to the top */
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.itemBox:hover .iconsOverlay {
+    opacity: 1;
+}
+
+.icon {
+    color: #ffb6c1; /* Light pink color for icons */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.icon:hover {
+    background-color: #ff6f61; /* Highlight color on hover */
+    transform: scale(1.1);
+}
+
+/* Price and discount styling */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+/* Rating styling */
+.rating {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.star {
+    color: #ffb300; /* Gold color for filled stars */
+    font-size: 1.2rem; /* Adjust size as needed */
+}
+
+.empty {
+    color: #dcdcdc; /* Light gray for empty stars */
+}
+
+
+/* Icons styling */
+.iconsOverlay {
+    position: absolute;
+    top: 10px; /* Position icons at the top right */
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9); /* Light white background for panel */
+    border-radius: 5px; /* Rounded corners for the panel */
+    padding: 5px; /* Padding around the icons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.itemBox:hover .iconsOverlay {
+    opacity: 1;
+}
+
+.icon {
+    color: #ff6f61; /* Pink color for icons */
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background for icons */
+    border-radius: 50%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Adjust size if needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+    background-color: #ff4d4d; /* Darker pink on hover */
+    transform: scale(1.2);
+}
+
+/* Rating stars styling */
+.rating {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.star {
+    color: gold;
+    font-size: 1.5rem; /* Adjust size if needed */
+    margin: 0 2px;
+}
+
+/* Price and discount styling */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+/* General styles for icons and favicons */
+.favicon {
+    color: #87CEEB; /* Light bluish color */
+}
+
+/* Example styling for a hypothetical header or favicon-like element */
+.header-icon {
+    color: #87CEEB; /* Light bluish color */
+}
+
+/* Adjusting panel and other elements to ensure visibility */
+.panel, .icon, .header-icon {
+    background-color: #f0f8ff; /* Lightest blue to make sure it's visible */
+    color: #87CEEB; /* Light bluish color */
+}
+
+/* Ensure visibility with good contrast */
+.panel {
+    border: 1px solid #87CEEB; /* Light bluish border to stand out */
+}
+
+/* Additional styling to improve visibility and contrast */
+.itemBox {
+    background-color: #f0f8ff; /* Lightest blue for better contrast */
+    border: 1px solid #87CEEB; /* Light bluish border */
+}
+
+.icon {
+    background-color: #f0f8ff; /* Lightest blue background for icons */
+    color: #87CEEB; /* Light blu
+    /* General shadow for components */
+.shadow-large {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* 0 4px 8px: Horizontal offset, vertical offset, blur radius
+       rgba(0, 0, 0, 0.3): Shadow color with opacity
+       0 8px 16px: Additional shadow to create a layered effect
+       rgba(0, 0, 0, 0.2): Lighter shadow for depth */
+}
+
+/* Apply shadow to item boxes */
+.itemBox {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply shadow to images */
+.pageImg {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply shadow to other panels */
+.panel, .pro-selected {
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Example for a button or similar element */
+.button {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+}
+
+/* Styling for images with a thick shadow */
+.pageImg img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Thick shadow */
+}
+
+/* Optional: Enhance shadow on hover */
+.pageImg img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+/* Styling for the image container */
+.pageImg {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #eee; /* Light border around image container */
+    margin-bottom: 5px;
+}
+
+/* Styling for the icons overlay */
+/* Styling for the icons overlay */
+.iconsOverlay {
+    position: absolute;
+    top: 10px; /* Distance from the top of the image container */
+    right: 10px; /* Distance from the right of the image container */
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly white background for visibility */
+    border-radius: 8px; /* Rounded corners for the panel */
+    padding: 8px; /* Space around the icons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow for the panel */
+    z-index: 10; /* Ensure the panel is on top of the image */
+}
+
+/* Show icons on hover */
+.itemBox:hover .iconsOverlay {
+    opacity: 1;
+}
+
+/* Styling for each icon */
+.icon {
+    color: #ff6f61; /* Light pink color for icons */
+    background-color: #fff; /* White background for the icon */
+    border-radius: 50%;
+    padding: 0.1rem; /* Space inside the icon */
+    margin-bottom: 10px; /* Spacing between icons */
+    font-size: 1.5rem; /* Larger font size for the icons */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.icon:hover {
+    background-color: #ff6f61; /* Change background on hover */
+    color: #fff; /* White color for the icon text on hover */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* Styling for price and discount */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+/* Styling for rating stars */
+.rating {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #f1c40f; /* Gold color for stars */
+}
+/* Styling for price and discount */
+.priceAndDiscount {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.discount {
+    display: block;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+/* Styling for rating stars */
+.rating {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #f1c40f; /* Gold color for stars */
+}
+
+/* Add this to your CSS file */
+
+/* Ensure the fullpage container has proper padding */
+.fullpage {
+    display: flex;
+    padding: 20px;
+}
+
+/* Style the filters container */
+.pro-selected {
+    flex: 0 0 250px; /* Fixed width for the filters section */
+    margin-right: 20px; /* Space between filters and product section */
+    border-right: 1px solid #ccc; /* Optional: border to separate filters */
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's width and height */
+}
+
+/* Ensure the pageSection takes up the remaining space */
+.pageSection {
+    flex: 1; /* Takes up the remaining space */
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines if necessary */
+    gap: 20px; /* Space between items */
+}
+
+/* Style for individual product boxes */
+.itemBox {
+    width: calc(33.333% - 20px); /* Three items per row with space between them */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border: 1px solid #ddd; /* Border for each product box */
+    padding: 10px;
+    position: relative;
+}
+
+/* Ensure images and other elements inside itemBox are styled properly */
+.pageImg img {
+    width: 100%;
+    height: auto;
+}
+
+.proModel {
+    margin-top: 10px; /* Space between image and product name */
+}
+
+/*
+side prodts filter styling
+*/
+/* General styles */
+body {
+    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar-section {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navSection {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+/* Filter Section */
+.pro-selected {
+    position: fixed;
+    width: 220px; /* Adjusted width for more space */
+    top: 80px; /* Positioned below the navbar */
+    left: 0;
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+    background-color: #f8d7da; /* Light pink background color */
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for better aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Styling for filter inputs */
+.pro-input {
+    margin-bottom: 10px;
+}
+
+/* Main page content section */
+.pageSection {
+    margin-left: 240px; /* Margin adjusted for filter section */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Item boxes */
+.itemBox {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width to fit 4 items per row with margin */
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+/* Adjust layout on smaller screens */
+@media screen and (max-width: 575px) {
+    .navbar-section, .pro-selected {
+        display: none; /* Hide filter section on smaller screens */
+    }
+    
+    .pageSection {
+        margin-left: 0; /* Remove left margin */
+        display: block;
+    }
+}
+
+
+/* General styles */
+body {
+    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar-section {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navSection {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+/* Filter Section */
+.pro-selected {
+    position: fixed;
+    width: 250px; /* Adjusted width for better spacing */
+    top: 80px; /* Positioned below the navbar */
+    left: 0;
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+    background-color: #f8d7da; /* Light pink background color */
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for better aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+}
+
+/* Filter category labels */
+.pro-category {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Filter items (checkboxes) */
+.pro-filter-item {
+    display: flex;
+    justify-content: space-between; /* Distribute space between label and checkbox */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Adjust size of checkboxes */
+.pro-filter-item input[type="checkbox"] {
+    width: 20px; /* Set checkbox width */
+    height: 20px; /* Set checkbox height */
+    /* Optional: Add a border and background for better visibility */
+    border: 2px solid #333;
+    background: #fff;
+}
+
+/* Styling for filter inputs */
+.pro-input {
+    margin-bottom: 10px;
+}
+
+/* Main page content section */
+.pageSection {
+    margin-left: 270px; /* Margin adjusted for filter section width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Item boxes */
+.itemBox {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width to fit 4 items per row with margin */
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+/* Adjust layout on smaller screens */
+@media screen and (max-width: 575px) {
+    .navbar-section, .pro-selected {
+        display: none; /* Hide filter section on smaller screens */
+    }
+    
+    .pageSection {
+        margin-left: 0; /* Remove left margin */
+        display: block;
+    }
+}
+
+/* Filter Section */
+.pro-selected {
+    position: fixed;
+    width: 250px; /* Adjusted width for better spacing */
+    top: 80px; /* Positioned below the navbar */
+    left: 0;
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+    background-color: #f8d7da; /* Light pink background color */
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for better aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+}
+
+/* Filter category labels */
+.pro-category {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Filter items (checkboxes) */
+.pro-filter-item {
+    display: flex;
+    justify-content: space-between; /* Distribute space between label and checkbox */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Adjust size of checkboxes */
+.pro-filter-item input[type="checkbox"] {
+    width: 20px; /* Set checkbox width */
+    height: 20px; /* Set checkbox height */
+    /* Optional: Add a border and background for better visibility */
+    border: 2px solid #333;
+    background: #fff;
+}
+
+/* Styling for filter inputs */
+.pro-input {
+    margin-bottom: 10px;
+}
+
+/* Main page content section */
+.pageSection {
+    margin-left: 270px; /* Margin adjusted for filter section width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Item boxes */
+.itemBox {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width to fit 4 items per row with margin */
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+/* General styles */
+body {
+    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar-section {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navSection {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+/* Filter Section */
+.pro-selected {
+    position: fixed;
+    width: 250px; /* Adjusted width for better spacing */
+    top: 80px; /* Positioned below the navbar */
+    left: 0;
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+    background-color: #6CB4EE; /* Light blue background color */
+    color: #fff; /* White text color for contrast */
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for better aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    margin-top: 65px;
+}
+
+.pro-category {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff; /* White text color for category labels */
+}
+
+.pro-filter-item {
+    display: flex;
+    justify-content: space-between; /* Distribute space between label and checkbox */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pro-filter-item label {
+    color: #fff; /* White text color for labels */
+    font-size: 1rem; /* Adjust label font size */
+}
+
+.pro-filter-item input[type="checkbox"] {
+    width: 20px; /* Set checkbox width */
+    height: 20px; /* Set checkbox height */
+    border: 2px solid #fff; /* White border for contrast */
+    background: #6CB4EE;
+    cursor: pointer;
+}
+
+.pro-filter-item input[type="checkbox"]:checked {
+    background: #fff; /* Change background when checked */
+    border: 2px solid #6CB4EE; /* Add border color when checked */
+}
+
+/* Main page content section */
+.pageSection {
+    margin-left: 270px; /* Margin adjusted for filter section width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Item boxes */
+.itemBox {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width to fit 4 items per row with margin */
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+/* Adjust layout on smaller screens */
+@media screen and (max-width: 575px) {
+    .navbar-section, .pro-selected {
+        display: none; /* Hide filter section on smaller screens */
+    }
+    
+    .pageSection {
+        margin-left: 0; /* Remove left margin */
+        display: block;
+    }
+}
+
+.pro-selected {
+    width: 250px;
+    background-color: #ffe6f0; /* Light pink background */
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ff80ab; /* Soft pink border */
+}
+
+.pro-input {
+    margin-bottom: 15px;
+}
+
+.pro-input label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #6a1b9a; /* Deep purple text color */
+    cursor: pointer;
+    padding-left: 5px; /* Padding between the checkbox and the text */
+}
+
+.pro-input input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d81b60; /* Deep pink border for checkbox */
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: 10px; /* Space between the checkbox and the text */
+    position: relative;
+}
+
+.pro-input input[type="checkbox"]:checked {
+    background-color: #d81b60; /* Deep pink background when checked */
+    border-color: #d81b60;
+}
+
+.pro-input input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+/* MobileSingle.css */
+/* MobileSingle.css */
+
+.ind-section {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.ind-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.ind-image img {
+  width: 70%; /* Smaller, yet prominent image size */
+  max-width: 400px; /* Limit maximum size */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.ind-image img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.ind-details {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.ind-company {
+  font-size: 2.2rem;
+  color: #2c3e50; /* Dark gray for company name */
+  font-weight: bold;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ind-model {
+  font-size: 1.7rem;
+  color: #34495e; /* Medium gray for model name */
+  margin: 10px 0;
 }
+
+.ind-price {
+  font-size: 2.2rem;
+  color: #e74c3c; /* Vibrant red for price */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.ind-desc {
+  font-size: 1.2rem;
+  color: #7f8c8d; /* Light grayish color for description */
+  margin: 20px 0;
+  line-height: 1.6; /* Improve readability */
+}
+
+.add-to-cart {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #e67e22; /* Warm orange background */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold;
+}
+
+.add-to-cart:hover {
+  background-color: #d35400; /* Darker orange on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.add-to-cart:focus {
+  outline: none;
+}
+
+/* MobileSingle.css */
+
+.ind-section {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  
+  .ind-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .ind-image img {
+    width: 70%; /* Smaller, yet prominent image size */
+    max-width: 400px; /* Limit maximum size */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .ind-image img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  .ind-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .ind-company {
+    font-size: 2.2rem;
+    color: #2c3e50; /* Dark gray for company name */
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .ind-model {
+    font-size: 1.7rem;
+    color: #34495e; /* Medium gray for model name */
+    margin: 10px 0;
+  }
+  
+  .ind-price {
+    font-size: 2.2rem;
+    color: #e74c3c; /* Vibrant red for price */
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .ind-desc {
+    font-size: 1.2rem;
+    color: #7f8c8d; /* Light grayish color for description */
+    margin: 20px 0;
+    line-height: 1.6; /* Improve readability */
+  }
+  
+/* MobileSingle.css */
+
+/* MobileSingle.css */
+
+.add-to-cart {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    color: #fff;
+    background: linear-gradient(135deg, #f39c12, #e67e22); /* Initial gradient background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  .add-to-cart:hover {
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* Green gradient on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    color: #fff; /* Ensure text color remains white */
+  }
+  
+  .add-to-cart:focus {
+    outline: none;
+  }
+  
+  /* MobileSingle.css */
+
+.ind-company, .ind-model, .ind-price {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .ind-company {
+    font-size: 2.2rem;
+    color: #2c3e50; /* Dark gray for company name */
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .ind-company:hover {
+    color: #2980b9; /* Blue color on hover */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  .ind-model {
+    font-size: 1.7rem;
+    color: #34495e; /* Medium gray for model name */
+    margin: 10px 0;
+  }
+  
+  .ind-model:hover {
+    color: #3498db; /* Lighter blue on hover */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  .ind-price {
+    font-size: 2.2rem;
+    color: #e74c3c; /* Vibrant red for price */
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .ind-price:hover {
+    color: #c0392b; /* Darker red on hover */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  }
+  
+  .ind-desc {
+    font-size: 1.2rem;
+    color: #7f8c8d; /* Light grayish color for description */
+    margin: 20px 0;
+    line-height: 1.6; /* Improve readability */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .ind-desc:hover {
+    color: #2c3e50; /* Darker gray on hover */
+    transform: scale(1.02); /* Slight zoom effect */
+  }
+  
+  /* MobileSingle.css */
+
+  .single-page-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* Remove scrollbar */
+    flex-wrap: wrap; /* Allow content to wrap within the container */
+    overflow-x: hidden;
+}
+
+/* Image section styling */
+/* Image section styling */
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Image styling */
+.image-section img {
+    max-width: 90%; /* Increase initial size */
+    height: 100%;
+    border-radius: 15px; /* Rounder corners for the image */
+   
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* Hover effect for image */
+.image-section img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.details-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+/* Hover effects for the company, model, and price text */
+.company {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.company:hover {
+    color: #3498db; /* Change color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.model {
+    font-size: 2rem;
+    color: #34495e;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.model:hover {
+    color: #e67e22; /* Change color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.price {
+    font-size: 2.2rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.price:hover {
+    color: #2ecc71; /* Change color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.description:hover {
+    color: #3498db; /* Change color on hover */
+    transform: scale(1.02); /* Slightly scale up on hover */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+.add-to-cart {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #3498db; /* Blue background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .add-to-cart i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 1.4rem; /* Adjust icon size */
+  }
+  
+  .add-to-cart:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  .add-to-cart:focus {
+    outline: none;
+  }
+  
+.offers-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.offers-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.offers-section ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.offers-section li {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.offers-section li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transform: translateX(-5px);
+    transition: transform 0.3s ease;
+}
+
+.offers-section li:hover {
+    color: #3498db; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Add text shadow */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.offers-section li:hover::before {
+    color: #e67e22; /* Change checkmark color on hover */
+    transform: translateX(-10px); /* Add a little animation to the checkmark */
+}
+
+/* Styles for the entire UserCart component */
+.y-cart {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Styles for empty cart section */
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-cart-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.empty-cart-text {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.shop-now-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.shop-now-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Styles for cart items */
+.cart-section {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.cart-img {
+    flex: 0 0 100px;
+    margin-right: 20px;
+}
+
+.cart-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-details {
+    flex: 1;
+}
+
+.cart-details h3 {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #ff6666;;
+}
+
+.cart-details h2 {
+    margin: 5px 0;
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.removeBtn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.removeBtn:hover {
+    background-color: #c0392b;
+}
+
+.navSection {
+    display: flex;
+    width: 100%;
+    min-width: 100vw;
+    height: 75px;
+    background-color:white;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    border-bottom: 1px solid var(--cultured);
+    z-index:1000;
+}
+.empty {
+    color: #ff6666; /* Light red color */
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+.empty-cart-text{
+    color: #ff6666;
+}
+.go-to-cart {
+    background-color: #ff6f61; /* A vibrant coral color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .go-to-cart i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .go-to-cart:hover {
+    background-color: #ff4a3d; /* Darker coral color */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .go-to-cart:hover i {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+  }
+  
+  .go-to-cart:active {
+    background-color: #ff2b1f; /* Even darker coral for active state */
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* cart */ 
+  /* Cart Title Styling */
+.y-cart {
+    text-align: center;
+    font-size: 2rem;
+    color: #343a40;
+    margin-top: 2rem;
+}
+
+/* Empty Cart Styling */
+.empty-cart {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.empty-cart-image {
+    width: 200px;
+    height: auto;
+}
+
+.empty-cart-text {
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin: 1rem 0;
+}
+
+.shop-now-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.shop-now-button:hover {
+    background-color: #0056b3;
+}
+
+/* Cart Section Styling */
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.y-cart {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-cart-image {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.empty-cart-text {
+    font-size: 18px;
+    color: #555;
+}
+
+.shop-now-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.shop-now-button:hover {
+    background-color: #0056b3;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.cart-img img {
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantity {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.increment-btn, .decrement-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.increment-btn:hover, .decrement-btn:hover {
+    background-color: #0056b3;
+}
+
+/* For the general text color on the cart page */
+.cart-section h3, .cart-section h2, .empty-cart-text {
+    color: #4A90E2; /* A rich blue color for text */
+}
+
+/* For the 'Your Cart' heading */
+.y-cart {
+    color: #D7263D; /* A vibrant red color */
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Hover effect for the product titles */
+.cart-section h3:hover {
+    color: #F39C12; /* A warm, bright orange color */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for the price */
+.cart-section h2:hover {
+    color: #27AE60; /* A vibrant green color */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Additional styling for the 'Remove' button */
+.removeBtn {
+    color: #fff;
+    background-color: #E74C3C; /* Red background */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.removeBtn:hover {
+    background-color: #C0392B; /* Darker red on hover */
+}
+
+.bold-icon {
+    margin-left:5px;
+    padding-top:2px;
+    font-weight: 1000;
+    text-shadow: 0px 1px 0px black;
+}
+.menu-title {
+    text-shadow: 0px 1px 0px black;
+}
+
+.menu-title:hover {
+    color: #002fff;
+}
+.menu-title{
+    font-weight: 400;
+}
+
+
+  .dropdown-panel-list .panel-list-item a:hover {
+    color: #002fff;
+    font-size:18px; /* Color on hover */
+  }
+
+
+
+
+
+
+  *{
+    margin:0px;
+    padding:0px;
+    font-family:sans-serif;
+}
+#form {
+    border: none;
+    padding:20px;
+    padding-bottom:50px;
+    background:#ccc;
+    border-radius:10px;
+    max-height:500px;
+    margin:5% auto;
+   
+}
+
+#page{
+    margin:20px;
+}
+#btn{
+margin-top:30px;
+width:100%;
+
+}
+.user-detail{
+    color: black;
+    
+}
+.user-detail:hover {
+    color: blue;
+}
+
+
+
+
+
+/* Ensure the container occupies the full width of the screen */
+
